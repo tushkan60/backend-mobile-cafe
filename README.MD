@@ -1,4 +1,3 @@
-```markdown
 # Farm Cafe "Mobila" - Backend
 
 ## Mobila Cafe Management System - Backend
@@ -21,4 +20,9 @@ This is the backend application for the Mobila Cafe Management System, created u
 - `/api/shifts`: Manage shifts (CRUD operations)
 - `/api/orders`: Manage orders (CRUD operations)
 
-lease use this combined README.md for your backend application, incorporating both the information you provided and the content I generated earlier.
+## Testing
+
+- Run tests to ensure the correct functioning of the application.
+
+```bash
+npm test
