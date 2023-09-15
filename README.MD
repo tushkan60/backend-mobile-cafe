@@ -1,20 +1,24 @@
-# Система управления кафе Мобила - Backend
+```markdown
+# Farm Cafe "Mobila" - Backend
 
-Это backend-часть Системы управления кафе Мобила, созданная с использованием Node.js, Express и MongoDB. Он предоставляет API для управления данными ресторана и взаимодействия с frontend-приложением.
+## Mobila Cafe Management System - Backend
 
-## Начало работы
+This is the backend application for the Mobila Cafe Management System, created using Node.js, Express, and MongoDB. It provides an API for managing restaurant data and interacting with the frontend application.
 
-1. Клонируйте репозиторий
-2. Установите зависимости: `npm install`
-3. Настройте подключение к MongoDB в файле `config.js`.
-4. Запустите сервер: `npm start:dev`
-5. Сервер будет работать на `http://localhost:3000`
+## Getting Started
 
-## Доступные API
+1. Clone the repository.
+2. Install dependencies: `npm install`
+3. Configure MongoDB connection in the `config.js` file.
+4. Start the server: `npm start:dev`
+5. The server will run at `http://localhost:3000`
 
-- `/api/tables`: Управление столиками ресторана (операции CRUD)
-- `/api/waiters`: Управление официантами (операции CRUD)
-- `/api/dishes`: Управление блюдами (операции CRUD)
-- `/api/shifts`: Управление сменами (операции CRUD)
-- `/api/orders`: Управление заказами (операции CRUD)
+## Available APIs
 
+- `/api/tables`: Manage restaurant tables (CRUD operations)
+- `/api/waiters`: Manage waitstaff (CRUD operations)
+- `/api/dishes`: Manage dishes (CRUD operations)
+- `/api/shifts`: Manage shifts (CRUD operations)
+- `/api/orders`: Manage orders (CRUD operations)
+
+lease use this combined README.md for your backend application, incorporating both the information you provided and the content I generated earlier.
