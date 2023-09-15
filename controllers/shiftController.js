@@ -2,6 +2,7 @@ const Shift = require('../models/shiftModel');
 const Waiter = require('../models/waiterModel');
 const Order = require('../models/orderModel');
 const Dish = require('../models/dishModel');
+const factory = require('./handlersFactory');
 
 exports.openShift = async (req, res) => {
   try {
@@ -213,3 +214,7 @@ exports.getStatistic = async (req, res) => {
     });
   }
 };
+
+exports.deleteShift = factory.deleteOne(Shift);
+
+exports.updateShift = factory.updateOne(Shift);

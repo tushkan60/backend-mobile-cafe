@@ -1,4 +1,5 @@
 const Table = require('../models/tableModel');
+const factory = require('./handlersFactory');
 
 exports.getAllTables = async (req, res) => {
   try {
@@ -20,41 +21,6 @@ exports.getAllTables = async (req, res) => {
 exports.getTable = async (req, res) => {
   try {
     const table = await Table.findById(req.params.id);
-
-    res.status(200).json({
-      status: 'success',
-      data: { table },
-    });
-  } catch (e) {
-    res.status(404).json({
-      status: 'fail',
-      message: e,
-    });
-  }
-};
-
-exports.createTable = async (req, res) => {
-  try {
-    const newTable = await Table.create(req.body);
-
-    res.status(201).json({
-      status: 'success',
-      data: { table: newTable },
-    });
-  } catch (e) {
-    res.status(404).json({
-      status: 'fail',
-      message: e,
-    });
-  }
-};
-
-exports.updateTable = async (req, res) => {
-  try {
-    const table = await Table.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
 
     res.status(200).json({
       status: 'success',
@@ -100,18 +66,59 @@ exports.updateAllTables = async (req, res) => {
   }
 };
 
-exports.deleteTable = async (req, res) => {
-  try {
-    await Table.findByIdAndDelete(req.params.id);
+exports.deleteTable = factory.deleteOne(Table);
 
-    res.status(204).json({
-      status: 'success',
-      data: null,
-    });
-  } catch (e) {
-    res.status(404).json({
-      status: 'fail',
-      message: e,
-    });
-  }
-};
+exports.updateTable = factory.updateOne(Table);
+
+exports.createTable = factory.createOne(Table);
+
+// exports.createTable = async (req, res) => {
+//   try {
+//     const newTable = await Table.create(req.body);
+//
+//     res.status(201).json({
+//       status: 'success',
+//       data: { table: newTable },
+//     });
+//   } catch (e) {
+//     res.status(404).json({
+//       status: 'fail',
+//       message: e,
+//     });
+//   }
+// };
+
+// exports.updateTable = async (req, res) => {
+//   try {
+//     const table = await Table.findByIdAndUpdate(req.params.id, req.body, {
+//       new: true,
+//       runValidators: true,
+//     });
+//
+//     res.status(200).json({
+//       status: 'success',
+//       data: { table },
+//     });
+//   } catch (e) {
+//     res.status(404).json({
+//       status: 'fail',
+//       message: e,
+//     });
+//   }
+// };
+
+// exports.deleteTable =  async (req, res) => {
+//   try {
+//     await Table.findByIdAndDelete(req.params.id);
+//
+//     res.status(204).json({
+//       status: 'success',
+//       data: null,
+//     });
+//   } catch (e) {
+//     res.status(404).json({
+//       status: 'fail',
+//       message: e,
+//     });
+//   }
+// };

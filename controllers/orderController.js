@@ -3,6 +3,7 @@ const Dish = require('../models/dishModel');
 const Shift = require('../models/shiftModel');
 const Table = require('../models/tableModel');
 const Waiter = require('../models/waiterModel');
+const factory = require('./handlersFactory');
 
 async function calculateOrderTotal(dishes) {
   try {
@@ -156,18 +157,22 @@ exports.closeOrder = async (req, res) => {
   }
 };
 
-exports.deleteOrder = async (req, res) => {
-  try {
-    await Order.findByIdAndDelete(req.params.id);
+exports.deleteOrder = factory.deleteOne(Order);
 
-    res.status(204).json({
-      status: 'success',
-      data: null,
-    });
-  } catch (e) {
-    res.status(404).json({
-      status: 'fail',
-      message: e,
-    });
-  }
-};
+exports.updateOrder = factory.updateOne(Order);
+
+// exports.deleteOrder = async (req, res) => {
+//   try {
+//     await Order.findByIdAndDelete(req.params.id);
+//
+//     res.status(204).json({
+//       status: 'success',
+//       data: null,
+//     });
+//   } catch (e) {
+//     res.status(404).json({
+//       status: 'fail',
+//       message: e,
+//     });
+//   }
+// };
